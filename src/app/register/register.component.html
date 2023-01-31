@@ -1,0 +1,9 @@
+<form action="" method="post" [formGroup]="formGroup" (ngSubmit)="registerUser()">
+  <input type="text" class="form-control" placeholder="First name" ng-model="first_name" aria-label="First name" formControlName="first_name" autocomplete="on" aria-describedby="basic-addon1" id="first_name">
+  <input type="text" class="form-control" placeholder="Last name" ng-model="last_name" aria-label="Last name" formControlName="last_name" autocomplete="on" aria-describedby="basic-addon1" id="last_name">  
+  <input type="username" class="form-control" placeholder="John Doe" ng-model="username" aria-label="username" formControlName="username" autocomplete="on" aria-describedby="basic-addon1" id="username">
+  <input type="email" class="form-control" placeholder="Email address" ng-model="email" aria-label="email" formControlName="email" autocomplete="on" aria-describedby="basic-addon1" id="email">
+  <input type="password" placeholder="Password" class="form-control" ng-model="password" aria-label="password" formControlName="password" autocomplete="on" aria-describedby="basic-addon1" id="password">
+  <input type="password" placeholder="Confirm password" class="form-control" ng-model="confirm_password" aria-label="confirm_password" formControlName="confirm_password" autocomplete="on" aria-describedby="basic-addon1" id="confirm_password">
+  <button type="submit" value="Register" class="btn btn-outline-success btn-md">Register</button>
+</form>
