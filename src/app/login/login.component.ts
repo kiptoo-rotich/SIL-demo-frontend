@@ -1,4 +1,4 @@
-import { HttpClient, HttpErrorResponse } from '@angular/common/http';
+import { HttpClient, HttpErrorResponse, HttpHeaders } from '@angular/common/http';
 import { Component } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { UserService } from '../user.service';
@@ -9,35 +9,57 @@ import { UserService } from '../user.service';
   styleUrls: ['./login.component.css']
 })
 export class LoginComponent {
+  getToken = localStorage.getItem("Token");
   formGroup!: FormGroup;
+  is_authenticated = false;
 
-  constructor(private userService: UserService,private http: HttpClient){}
+  constructor(private userService: UserService, private http: HttpClient) { }
   ngOnInit() {
-    this.formGroup=new FormGroup({
+    this.formGroup = new FormGroup({
       username: new FormControl("", Validators.required),
       password: new FormControl("", Validators.required)
     })
   }
 
-  loginUser(){
+  loginUser() {
+    // Get details from user login form
     let username = this.formGroup.value.username
     let password = this.formGroup.value.password
 
+    // Create an object from the details
     const data = {
       username: username,
       password: password,
     };
 
+
+    // Call loginUser fucntion and pass in username and password
     this.userService.loginUser(data)
-    .subscribe(
-      (response:any)=>{
-        if(response.token){
-          console.log(response)
-        }else{
-          console.error('oops', Error)
+      .subscribe(
+        (response: any) => {
+          if (response.token) {
+            this.is_authenticated = true;
+
+            // Set authorization header for user post request
+            const headers = new HttpHeaders({
+              'Content-Type': 'application/json',
+              'Authorization': `Token ${response.token}`
+            })
+
+            const requestOptions = { headers: headers };
+
+            // Call userDetails function and pass in Authorization token
+            this.userService.userDetails(requestOptions)
+              .subscribe(
+                (response: any) => {
+                  console.log(response)
+                }
+              )
+          } else {
+            console.error("Check your credentials and try again")
+          }
         }
-      }
-    )
+      )
   }
 
 }

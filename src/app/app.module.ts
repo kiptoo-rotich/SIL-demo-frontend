@@ -11,6 +11,8 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { RegisterComponent } from './register/register.component';
 import { LoginComponent } from './login/login.component';
 import { InterceptorService } from './services/interceptor.service';
+import { AlbumComponent } from './album/album.component';
+import { SpinnerComponent } from './spinner/spinner.component';
 
 @NgModule({
   declarations: [
@@ -19,6 +21,8 @@ import { InterceptorService } from './services/interceptor.service';
     HomeComponent,
     RegisterComponent,
     LoginComponent,
+    AlbumComponent,
+    SpinnerComponent,
   ],
   imports: [
     BrowserModule,
@@ -29,10 +33,11 @@ import { InterceptorService } from './services/interceptor.service';
     NgbModule,
   ],
   providers: [
+    // Register HTTP interceptor
     {
     provide: HTTP_INTERCEPTORS,
     useClass: InterceptorService,
-    multi: true
+    multi   : true,
   }
   ],
   bootstrap: [AppComponent]
