@@ -22,6 +22,14 @@ export class UserService {
   }
 
   getAlbum(data: any){
-    return this.http.get(`${environment.baseUrl}api/album`,data)
+    return this.http.get(`${environment.baseUrl}api/albums`,data)
+  }
+
+  postAlbum(data: any){
+    return this.http.post(`${environment.baseUrl}api/albums`,data)
+  }
+
+  userList(){
+    return this.http.get(`${environment.baseUrl}api/users_list`)
   }
 }

@@ -33,12 +33,15 @@ export class LoginComponent {
     };
 
 
-    // Call loginUser fucntion and pass in username and password
+    // Call loginUser function and pass in username and password
     this.userService.loginUser(data)
       .subscribe(
         (response: any) => {
           if (response.token) {
             this.is_authenticated = true;
+
+            // Store token in localStorage
+            localStorage.setItem("Token",response.token);
 
             // Set authorization header for user post request
             const headers = new HttpHeaders({
@@ -47,7 +50,7 @@ export class LoginComponent {
             })
 
             const requestOptions = { headers: headers };
-
+            
             // Call userDetails function and pass in Authorization token
             this.userService.userDetails(requestOptions)
               .subscribe(

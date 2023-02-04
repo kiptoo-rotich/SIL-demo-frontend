@@ -45,7 +45,7 @@ export class RegisterComponent {
     .subscribe(
       (response:any)=>{
         if(response){
-          console.log(response.Token)
+          console.log(response)
         }else{
           console.log("Something went wrong")
         }

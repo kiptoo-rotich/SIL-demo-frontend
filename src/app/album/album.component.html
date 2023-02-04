@@ -1,1 +1,8 @@
-<p>album works!</p>
+<div class="container">
+    <div *ngIf="albums">
+        <ul *ngFor="let album of albums[0]">
+            <li>{{album.album_title}}</li>
+            <li>{{numberOfAlbums}}</li>
+        </ul>
+    </div>
+</div>
