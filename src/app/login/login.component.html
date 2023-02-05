@@ -1,16 +1,18 @@
 <div class="container-fluid">
   <div class="row">
-    <h4 class="text-center">Sign In</h4>
     <div class="col-lg-4 col-md-6 col-sm-8">
-
     </div>
-    <div class="col-lg-4 col-md-6 col-sm-8">
-      <form action="" method="post" [formGroup]="formGroup" (ngSubmit)="loginUser()">
-        <input type="username" class="form-control" placeholder="John Doe" ng-model="username" aria-label="username"
+    <div class="col-lg-4 col-md-6 col-sm-8 login">
+      <form class="login_form" action="" method="post" [formGroup]="formGroup" (ngSubmit)="loginUser()">
+        <img src="../../assets/Images/icons8-username-48.png" class="username_icon" alt="Username"><input
+          type="username" class="form-control" placeholder="John Doe" ng-model="username" aria-label="username"
           formControlName="username" autocomplete="on" aria-describedby="basic-addon1" id="username">
         <input type="password" placeholder="Password" class="form-control" ng-model="password" aria-label="password"
           formControlName="password" autocomplete="on" aria-describedby="basic-addon1" id="password">
-        <a routerLink="/home"><button type="submit" value="Login" class="btn btn-outline-success btn-md">Login</button></a>
+        <a routerLink="/home"><button type="submit" value="Login"
+            class="btn btn-outline-info btn-md login_button">Login</button></a>
+        <button class="google_signin_button btn btn-outline-info"><img src="../../assets/Images/icons8-google-48.png"
+            alt="Google" height="20px" width="auto" (click)="signIn()"></button>
       </form>
     </div>
   </div>

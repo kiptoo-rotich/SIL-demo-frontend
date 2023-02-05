@@ -1,8 +1,8 @@
 <div class="container">
     <div *ngIf="albums">
-        <ul *ngFor="let album of albums[0]">
+        <li>{{numberOfAlbums}}</li>
+        <ul *ngFor="let album of albums[0]" class="card">
             <li>{{album.album_title}}</li>
-            <li>{{numberOfAlbums}}</li>
         </ul>
     </div>
 </div>

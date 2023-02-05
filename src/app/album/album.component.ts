@@ -18,7 +18,6 @@ export class AlbumComponent {
 
   constructor(private userService: UserService, private http: HttpClient, private router: Router, private route: ActivatedRoute){}
   token = localStorage.getItem("Token")
-
   // Initialize the component
   ngOnInit() {
     this.getAlbums()

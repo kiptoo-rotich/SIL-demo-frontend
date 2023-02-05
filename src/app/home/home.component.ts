@@ -13,28 +13,23 @@ import { Router } from '@angular/router';
 
 export class HomeComponent {
 
-  constructor(private userService: UserService, private http: HttpClient,private router: Router){}
+  constructor(private userService: UserService, private http: HttpClient, private router: Router) { }
 
-  userList: any =[]
+  userList: any = []
 
 
-  ngOnInit(){
-  this.user_list()
+  ngOnInit() {
+    this.user_list()
   }
 
-  user_list(){
+  user_list() {
     this.userService.userList()
-    .subscribe(
-      (response: any) => {
-        this.userList.push(response);
-        // this.userService.getAlbum({params:{user_id: }})
-      }
-    )
-  }
+      .subscribe(
+        (response: any) => {
+          this.userList.push(response);
 
-  getId(event:any){
-    let value = event.target.innerText;
-    console.log(value)
+        }
+      )
   }
 
 }

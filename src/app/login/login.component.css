@@ -1,0 +1,41 @@
+.login_form>input{
+    border: 1px solid grey;
+    box-shadow: 2px 2px 0px 0px solid lightgreen;
+    border-radius: 50px;
+    background-color: rgba(255, 255, 255, 0.589);
+    margin: 3% 0% 3% 0%;
+}
+
+.login{
+    border: 1px solid lightgreen;
+    border-radius: 10px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 2%;
+    background-image: url(../../assets/Images/wedding-album-design-ideas.jpg);
+    background-repeat: no-repeat;
+    background-size: cover;
+    margin-top: 10%;
+}
+
+
+.login_button{
+    border-radius: 50px;
+    width: 100%;
+    border: 1px solid lightgray;
+    background-color: white;
+}
+
+.google_signin_button{
+    border: 1px solid lightgray;
+    width: 100%;
+    border-radius: 50px;
+    background-color: white;
+    margin-top: 2%;
+}
+
+.username{
+    display: flex;
+}

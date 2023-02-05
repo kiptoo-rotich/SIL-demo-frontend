@@ -2,7 +2,6 @@
   <table class="table table-striped">
     <thead>
       <tr>
-        <th scope="col" type="hidden">id</th>
         <th scope="col">Username</th>
         <th scope="col">Name</th>
         <th scope="col">Email Address</th>
@@ -11,11 +10,10 @@
     </thead>
     <tbody>
       <tr *ngFor="let user of userList[0]">
-        <td (click)="getId($event)">{{user.id}}</td>
         <td>{{user.username}}</td>
         <td>{{user.first_name}} {{user.last_name}}</td>
         <td>{{user.email}}</td>
-        <td><a [routerLink]="['/albums', user.id]"><button type="submit" class="btn btn-md btn-outline-info" (click)="getId(user)">View</button></a></td>
+        <td><a [routerLink]="['/albums', user.id]"><button type="submit" class="btn btn-md btn-outline-info">View</button></a></td>
       </tr>
     </tbody>
   </table>
